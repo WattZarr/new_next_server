@@ -7,7 +7,6 @@ const Register = require('../models/Register');
 const path = require('path')
 const fs = require('fs');
 const { createUser, login, getAllUsers, deleteUser, getUser, editUser } = require('../controllers/userController');
-const { log } = require('console');
 
 //register api
 // register course
