@@ -17,7 +17,7 @@ app.use('/api',routes);
 mongoose.connect('mongodb+srv://lwinkoko:newnext@newnext.izinkhj.mongodb.net/?retryWrites=true&w=majority')
         .then(()=>{
             //listen
-            app.listen(()=>{
+            app.listen(4000,()=>{
                 console.log("Server is started and connected to database successfully!");
             })
         }).catch((error) => {
