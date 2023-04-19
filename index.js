@@ -15,9 +15,12 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
 
     if(req.method === 'OPTIONS') {
-        next();
+        return res.status(200).json(({
+            body: "OK"
+        }))
     }
 
+    next();
   });
 app.use(bodyParser.json());
 app.use('/upload', express.static('upload')); //to know that the url /upload is point to the upload folder
