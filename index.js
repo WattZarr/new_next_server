@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 
 //middleware
-app.use(cors({ origin: ['http://new-next-server.onrender.com', 'https://new-next-server.onrender.com'], credentials: true }))
+app.use(cors({ origin: ['http://localhost:5173','http://new-next-server.onrender.com', 'https://new-next-server.onrender.com'], credentials: true }))
 app.use(bodyParser.json());
 app.use('/upload', express.static('upload')); //to know that the url /upload is point to the upload folder
 app.use('/api',routes);
@@ -17,7 +17,7 @@ app.use('/api',routes);
 mongoose.connect('mongodb+srv://lwinkoko:newnext@newnext.izinkhj.mongodb.net/?retryWrites=true&w=majority')
         .then(()=>{
             //listen
-            app.listen(4000,()=>{
+            app.listen(()=>{
                 console.log("Server is started and connected to database successfully!");
             })
         }).catch((error) => {
