@@ -7,15 +7,7 @@ const cors = require('cors');
 const app = express();
 
 //middleware
-//app.use(cors({ origin: ['http://new-next-server.onrender.com', 'https://new-next-server.onrender.com'], credentials: true }))
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
-
-    next();
-  });
+app.use(cors({ origin: ['http://new-next-server.onrender.com', 'https://new-next-server.onrender.com'], credentials: true }))
 app.use(bodyParser.json());
 app.use('/upload', express.static('upload')); //to know that the url /upload is point to the upload folder
 app.use('/api',routes);
