@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 
 //middleware
-app.use(cors({ origin: ['http://localhost:5173','http://new-next-server.onrender.com', 'https://new-next-server.onrender.com'], credentials: true }))
+app.use(cors())
 app.use(bodyParser.json());
 app.use('/upload', express.static('upload')); //to know that the url /upload is point to the upload folder
 app.use('/api',routes);
