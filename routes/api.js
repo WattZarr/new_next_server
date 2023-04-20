@@ -43,6 +43,19 @@ router.get('/register-info' , async(req,res) => {
 //delete register
 router.delete('/delete-register/:id' , async(req,res) => {
     const {id} = req.params;
+
+    const registarData = await Register.findById({_id:id});
+    const imageData = registarData.transaction;
+    const directoryPath = path.join(__dirname, "../register/");
+
+    fs.unlink(directoryPath+imageData, (err) => {
+        if (err) {
+            console.log(err);
+          }
+          console.log("Success");
+    });
+
+
     
     const register = await Register.findOneAndDelete({_id : id});
 
@@ -78,7 +91,7 @@ router.get('/', getAllCourse);
 router.get('/:id',getCourse)
 
 //delete course
-router.delete('/:id', deleteCourse)
+router.delete('delete-course/:id', deleteCourse)
 
 
 //create course
