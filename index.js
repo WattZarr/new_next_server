@@ -10,6 +10,7 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json());
 app.use('/upload', express.static('upload')); //to know that the url /upload is point to the upload folder
+app.use('/register', express.static('register')); // same as upload
 app.use('/api',routes);
 
 

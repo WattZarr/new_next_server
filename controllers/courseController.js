@@ -38,7 +38,7 @@ const deleteCourse = async(req,res) => {
         res.status(404).json({msg : "There is no such a course"})
     }
 
-    // const course = await Course.findOneAndDelete({_id : id});
+    const course = await Course.findOneAndDelete({_id : id});
     fs.unlink(directoryPath+imageData, (err) => {
         if (err) {
             console.log(err);
@@ -46,10 +46,8 @@ const deleteCourse = async(req,res) => {
           console.log("Success");
     });
 
-    
 
-    res.json(directoryPath)
-    //res.status(200).json({msg : "Course is Deleted!"});
+    res.status(200).json({msg : "Course is Deleted!"});
 }
 
 //edit course
