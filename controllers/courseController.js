@@ -34,22 +34,20 @@ const deleteCourse = async(req,res) => {
     const imageData = courseData.image;
     const directoryPath = path.join(__dirname, "../upload/");
 
-    // if(!mongoose.Types.ObjectId.isValid(id)){
-    //     res.status(404).json({msg : "There is no such a course"})
-    // }
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        res.status(404).json({msg : "There is no such a course"})
+    }
 
-    // const course = await Course.findOneAndDelete({_id : id});
-    // fs.unlink(directoryPath+imageData, (err) => {
-    //     if (err) {
-    //         console.log(err);
-    //       }
-    //       console.log("Success");
-    // });
+    const course = await Course.findOneAndDelete({_id : id});
+    fs.unlink('https://new-next-server.onrender.com/upload/'+imageData, (err) => {
+        if (err) {
+            console.log(err);
+          }
+          console.log("Success");
+    });
 
-    console.log(directoryPath,imageData);
 
-    //res.status(200).json({msg : "Course is Deleted!"});
-    res.json({directoryPath})
+    res.status(200).json({msg : "Course is Deleted!"});
 }
 
 //edit course
