@@ -91,7 +91,7 @@ router.get('/', getAllCourse);
 router.get('/:id',getCourse)
 
 //delete course
-router.delete('delete-course/:id', deleteCourse)
+router.delete('/delete-course/:id', deleteCourse)
 
 
 //create course
