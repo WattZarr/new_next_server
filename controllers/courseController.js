@@ -39,12 +39,12 @@ const deleteCourse = async(req,res) => {
     }
 
     // const course = await Course.findOneAndDelete({_id : id});
-    // fs.unlink('https://new-next-server.onrender.com/upload/'+imageData, (err) => {
-    //     if (err) {
-    //         console.log(err);
-    //       }
-    //       console.log("Success");
-    // });
+    fs.unlink(directoryPath+imageData, (err) => {
+        if (err) {
+            console.log(err);
+          }
+          console.log("Success");
+    });
 
     
 
