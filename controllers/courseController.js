@@ -48,7 +48,8 @@ const deleteCourse = async(req,res) => {
 
     console.log(directoryPath,imageData);
 
-    res.status(200).json({msg : "Course is Deleted!"});
+    //res.status(200).json({msg : "Course is Deleted!"});
+    res.json({directoryPath})
 }
 
 //edit course
